@@ -2,6 +2,7 @@ import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -10,20 +11,23 @@ const Navbar = () => {
         sx={{
           display: "flex",
           width: "100vw",
-          justifyContent:'space-around',
-          alignItems:'center',
+          justifyContent: "space-around",
+          alignItems: "center",
           py: 3,
         }}
       >
-        <Typography
-          sx={{
-            fontSize: 34,
-            fontFamily: "jockey one",
-            fontWeight: 500,
-          }}
-        >
-          EPIC CAFE
-        </Typography>
+        <NavLink style={{textDecoration:'none', color:"black",}} to="/">
+          <Typography
+            sx={{
+              fontSize: 34,
+              fontFamily: "jockey one",
+              fontWeight: 500,
+              textDecoration:'none',
+            }}
+          >
+            EPIC CAFE
+          </Typography>
+        </NavLink>
         <TextField
           placeholder="Search for food"
           sx={{
@@ -40,34 +44,40 @@ const Navbar = () => {
             boxShadow: "3px 7px 17px 0px rgba(0, 0, 0, 0.25)",
           }}
         />
-        <Typography
-          sx={{
-            fontSize: 25,
-            fontFamily: "Kanit",
-            fontWeight:600
-          }}
-        >
-          Menu
-        </Typography>
-        <Box sx={{display:'flex', gap:2, alignItems:'center'}}>
+        <NavLink to="/" style={{textDecoration:'none', color:"black",}}>
           <Typography
             sx={{
               fontSize: 25,
               fontFamily: "Kanit",
-              fontWeight:600
+              fontWeight: 600,
             }}
           >
-            Login
+            Menu
           </Typography>
-          <Typography
-            sx={{
-              fontSize: 25,
-              fontFamily: "Kanit",
-              fontWeight:600
-            }}
-          >
-            Signup
-          </Typography>
+        </NavLink>
+        <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+          <NavLink to="/" style={{textDecoration:'none', color:"black",}}>
+            <Typography
+              sx={{
+                fontSize: 25,
+                fontFamily: "Kanit",
+                fontWeight: 600,
+              }}
+            >
+              Login
+            </Typography>
+          </NavLink>
+          <NavLink to="/" style={{textDecoration:'none', color:"black",}}>
+            <Typography
+              sx={{
+                fontSize: 25,
+                fontFamily: "Kanit",
+                fontWeight: 600,
+              }}
+            >
+              Signup
+            </Typography>
+          </NavLink>
         </Box>
       </Box>
     </nav>

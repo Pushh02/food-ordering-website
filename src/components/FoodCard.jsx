@@ -1,10 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import {Link} from 'react-router-dom';
 
 const FoodCard = (props) => {
   return (
+    <Link to="/">
     <Box
-      sx={{ width: 236, height: 262, borderRadius: 8, background: "#FAF0E4", mx:3, my:2}}
+      sx={{display:'inline-block', width: 236, height: 270, borderRadius: 8, background: "#FAF0E4", mx:3, my:2}}
     >
       <img
         src={props.imgSrc}
@@ -22,6 +24,7 @@ const FoodCard = (props) => {
       </Box>
       <Typography sx={{mx:1, fontSize:14, color:"rgb(59 59 59)", whiteSpace:'normal'}}>{props.foodDesc}</Typography>
     </Box>
+    </Link>
   );
 };
 

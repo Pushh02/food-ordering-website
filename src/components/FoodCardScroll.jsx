@@ -1,23 +1,12 @@
 import { Box, Fab, Typography } from "@mui/material";
 import arr from "../data";
+import FoodCard from "../components/FoodCard";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
-import CatergoryItem from "./CatergoryItem";
 
-const CatergoryScroll = () => {
-  // window.onload = function () {
-  //   const buttonRight = document.getElementById("slideRight");
-  //   const buttonLeft = document.getElementById("slideLeft");
-  //   buttonRight.onClick = function () {
-  //     document.getElementById("scroll").scrollLeft += 5;
-  //   };
-  //   buttonLeft.onClick = function () {
-  //     document.getElementById("scroll").scrollLeft -= 20;
-  //   };
-  // };
-
+const FoodCardScroll = () => {
   return (
-    <div style={{position: "relative",}}>
+    <div style={{position:'relative'}}>
       <Typography
         sx={{
           display: "inline-block",
@@ -26,34 +15,35 @@ const CatergoryScroll = () => {
           fontWeight: 900,
         }}
       >
-        Catergories
+        Recommended
         <hr style={{ borderBottom: "2px solid #FF8400" }} />
       </Typography>
       <br />
       <Box
         className="scroll"
-        id="slide"
+        id="slide2"
         sx={{
-          
           overflowX: "scroll",
+          overflowY: "hidden",
           whiteSpace: "nowrap",
         }}
       >
         <Fab
           size="medium"
           className="slideRight"
-          sx={{ position: "absolute", top: 179 }}
-          onClick={()=>document.getElementById("slide").scrollLeft -= 250}
+          sx={{ position: "absolute", top: 200 }}
+          onClick={() => (document.getElementById("slide2").scrollLeft -= 250)}
         >
           <KeyboardArrowLeftIcon />
         </Fab>
         {arr.map((s) => {
           return (
-            <CatergoryItem
+            <FoodCard
               key={s.id}
               imgSrc={s.imgSrc}
-              imgName={s.imgName}
               foodName={s.foodName}
+              price={s.price}
+              foodDesc={s.description}
             />
           );
         })}
@@ -61,8 +51,8 @@ const CatergoryScroll = () => {
           size="medium"
           component="button"
           className="slideLeft"
-          sx={{ position: "absolute", top: 179, right: 0 }}
-          onClick={()=>document.getElementById("slide").scrollLeft += 250}
+          sx={{ position: "absolute", top: 200, right: 0 }}
+          onClick={() => (document.getElementById("slide2").scrollLeft += 250)}
         >
           <KeyboardArrowRightIcon />
         </Fab>
@@ -71,4 +61,4 @@ const CatergoryScroll = () => {
   );
 };
 
-export default CatergoryScroll;
+export default FoodCardScroll;
