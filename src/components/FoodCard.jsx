@@ -20,7 +20,7 @@ const FoodCard = (props) => {
         <Typography sx={{fontSize:22}}>Cheese {props.foodName}</Typography>
         <Typography sx={{fontSize:22}}><span style={{color:"rgb(255, 132, 0)"}}>₹</span>{props.price}</Typography>
       </Box>
-      <Typography sx={{mx:1, fontSize:14, color:"rgb(59 59 59)"}}>{props.foodDesc}</Typography>
+      <Typography sx={{mx:1, fontSize:14, color:"rgb(59 59 59)", whiteSpace:'normal'}}>{props.foodDesc}</Typography>
     </Box>
   );
 };

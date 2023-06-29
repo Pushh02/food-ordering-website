@@ -27,6 +27,21 @@ const arr = [
     price:"200",
     description:"Cheese Burger with chicken made using cheif's piss"
   },
+  {
+    id: 5,
+    imgSrc: "https://www.teenaagnel.com/wp-content/uploads/2019/12/food-photography-in-dubai.jpg",
+    foodName: 'Burger',
+    price:"200",
+    description:"Cheese Burger with chicken made using cheif's piss"
+  },
+  {
+    id: 6,
+    imgSrc: "https://www.teenaagnel.com/wp-content/uploads/2019/12/food-photography-in-dubai.jpg",
+    foodName: 'Burger',
+    price:"200",
+    description:"Cheese Burger with chicken made using cheif's piss"
+  },
+
 
 ];
 export default arr;

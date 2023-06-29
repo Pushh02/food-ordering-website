@@ -5,6 +5,7 @@ const CatergoryItem = (props) => {
   return (
     <Box
       sx={{
+        display:'inline-block',
         width: 236,
         height: 204,
         position: "relative",
