@@ -1,20 +1,23 @@
 import { Box, Fab, Typography } from "@mui/material";
-import arr from "../data";
+// import arr from "../data";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+import { useEffect, useState } from "react";
 import CatergoryItem from "./CatergoryItem";
 
 const CatergoryScroll = () => {
-  // window.onload = function () {
-  //   const buttonRight = document.getElementById("slideRight");
-  //   const buttonLeft = document.getElementById("slideLeft");
-  //   buttonRight.onClick = function () {
-  //     document.getElementById("scroll").scrollLeft += 5;
-  //   };
-  //   buttonLeft.onClick = function () {
-  //     document.getElementById("scroll").scrollLeft -= 20;
-  //   };
-  // };
+  const [cats,setCats] = useState([])
+  useEffect(()=>{
+    const fetchData = async ()=>{
+        const response = await fetch("http://localhost:8000/categories",{
+          method:"GET"
+        })
+        const cat = await response.json()
+        setCats(cat)
+        console.log(cat)
+      }
+      fetchData()
+  },[]) 
 
   return (
     <div style={{position: "relative",}}>
@@ -47,13 +50,13 @@ const CatergoryScroll = () => {
         >
           <KeyboardArrowLeftIcon />
         </Fab>
-        {arr.map((s) => {
+        {cats.map((s) => {
           return (
             <CatergoryItem
               key={s.id}
-              imgSrc={s.imgSrc}
-              imgName={s.imgName}
-              foodName={s.foodName}
+              imgSrc={s.img}
+              // imgName={s.name}
+              foodName={s.name}
             />
           );
         })}
