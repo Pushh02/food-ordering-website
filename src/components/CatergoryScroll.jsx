@@ -37,7 +37,6 @@ const CatergoryScroll = () => {
         className="scroll"
         id="slide"
         sx={{
-          
           overflowX: "scroll",
           whiteSpace: "nowrap",
         }}
@@ -55,7 +54,7 @@ const CatergoryScroll = () => {
             <CatergoryItem
               key={s.id}
               imgSrc={s.img}
-              // imgName={s.name}
+              // imgName={s.name} 
               foodName={s.name}
             />
           );

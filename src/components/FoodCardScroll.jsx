@@ -37,22 +37,24 @@ import { useEffect, useState } from "react";
         </Typography>
         <br />
         <Box
-          className="scroll"
-          id="slide2"
+          // className="scroll"
+          // id="slide2"
           sx={{
-            overflowX: "scroll",
-            overflowY: "hidden",
-            whiteSpace: "nowrap",
+            position:"absolute",
+            left:"5%"
+          //   overflowX: "scroll",
+          //   overflowY: "hidden",
+          //   whiteSpace: "nowrap",
           }}
         >
-          <Fab
+          {/* <Fab
             size="medium"
             className="slideRight"
             sx={{ position: "absolute", top: 200 }}
             onClick={() => (document.getElementById("slide2").scrollLeft -= 250)}
           >
             <KeyboardArrowLeftIcon />
-          </Fab>
+          </Fab> */}
           {items.map((s) => {
             return (
               <FoodCard
@@ -64,7 +66,7 @@ import { useEffect, useState } from "react";
               />
             );
           })}
-          <Fab
+          {/* <Fab
             size="medium"
             component="button"
             className="slideLeft"
@@ -72,7 +74,7 @@ import { useEffect, useState } from "react";
             onClick={() => (document.getElementById("slide2").scrollLeft += 250)}
           >
             <KeyboardArrowRightIcon />
-          </Fab>
+          </Fab> */}
         </Box>
       </div>
     );

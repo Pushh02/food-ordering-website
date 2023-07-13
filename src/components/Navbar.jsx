@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav style={{backgroundColor : "#FAF0D7" }}>
       <Box
         sx={{
           display: "flex",
@@ -16,13 +16,13 @@ const Navbar = () => {
           py: 3,
         }}
       >
-        <NavLink style={{textDecoration:'none', color:"black",}} to="/">
+        <NavLink style={{ textDecoration: "none", color: "black" }} to="/">
           <Typography
             sx={{
-              fontSize: 34,
+              fontSize: { sm: 36, lg: "1.5" },
               fontFamily: "jockey one",
               fontWeight: 500,
-              textDecoration:'none',
+              textDecoration: "none",
             }}
           >
             EPIC CAFE
@@ -31,8 +31,9 @@ const Navbar = () => {
         <TextField
           placeholder="Search for food"
           sx={{
-            width: 635,
-            height: 50,
+            width: "41vw",
+            // height: "7vh",
+            backgroundColor:"white",
             "& fieldset": { border: 0 },
             "&:focus": { border: 0 },
             "& .MuiOutlinedInput-root.Mui-focused": {
@@ -44,10 +45,10 @@ const Navbar = () => {
             boxShadow: "3px 7px 17px 0px rgba(0, 0, 0, 0.25)",
           }}
         />
-        <NavLink to="/" style={{textDecoration:'none', color:"black",}}>
+        <NavLink to="/" style={{ textDecoration: "none", color: "black" }}>
           <Typography
             sx={{
-              fontSize: 25,
+              fontSize: { sm: "2vw", lg: "3vh" },
               fontFamily: "Kanit",
               fontWeight: 600,
             }}
@@ -56,10 +57,10 @@ const Navbar = () => {
           </Typography>
         </NavLink>
         <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-          <NavLink to="/" style={{textDecoration:'none', color:"black",}}>
+          <NavLink to="/login" style={{ textDecoration: "none", color: "black" }}>
             <Typography
               sx={{
-                fontSize: 25,
+                fontSize: { sm: "2vw", lg: "3vh"  },
                 fontFamily: "Kanit",
                 fontWeight: 600,
               }}
@@ -67,10 +68,10 @@ const Navbar = () => {
               Login
             </Typography>
           </NavLink>
-          <NavLink to="/" style={{textDecoration:'none', color:"black",}}>
+          <NavLink to="/signup" style={{ textDecoration: "none", color: "black" }}>
             <Typography
               sx={{
-                fontSize: 25,
+                fontSize: { sm: "2vw", lg: "3vh" },
                 fontFamily: "Kanit",
                 fontWeight: 600,
               }}

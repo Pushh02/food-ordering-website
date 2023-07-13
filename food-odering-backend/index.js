@@ -33,6 +33,10 @@ app.get("/categories", async (req,res)=>{
     res.send(docs)
 })
 
+app.get("/",(req,res)=>{
+    res.send("<h1>Server is running ...</h1><br><p><h2>API Details <br> <ul><li>/items => for getting items</li></ul></p>")
+})
+
 
 app.listen(process.env.PORT,()=>{
     console.log("server started ...")

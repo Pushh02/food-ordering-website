@@ -8,7 +8,7 @@ const CatergoryItem = (props) => {
       <Box
         sx={{
           display: "inline-block",
-          width: 236,
+          width: 209,
           height: 204,
           position: "relative",
           borderRadius: 10,
@@ -28,7 +28,9 @@ const CatergoryItem = (props) => {
           sx={{
             position: "absolute",
             top: 84,
-            left: 77,
+            left: '20%',
+            right: '20%',
+            textAlign:'center',
             fontSize: 28,
             fontFamily: "cursive",
             color: "white",
