@@ -1,8 +1,9 @@
-import { Box, Fab, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+// import {Fab}  from "@mui/material";
 // import arr from "../data";
 import FoodCard from "../components/FoodCard";
-import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
-import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+// import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
+// import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { useEffect, useState } from "react";
 
 
@@ -17,7 +18,7 @@ import { useEffect, useState } from "react";
             })
             const item = await response.json()
             setItems(item)
-            console.log(item)
+            // console.log(item)
           }
           fetchData()
       },[])
@@ -58,7 +59,7 @@ import { useEffect, useState } from "react";
           {items.map((s) => {
             return (
               <FoodCard
-                key={s.id}
+                key={s._id}
                 imgSrc={s.img}
                 foodName={s.name}
                 price={s.price}

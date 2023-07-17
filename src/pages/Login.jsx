@@ -1,19 +1,38 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
+// import {Button} from "@mui/material";
 import "../index.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Login = () => {
-  const [user, setUser] = useState({ username: "", password: "" });
+  const navigate = useNavigate();
+  const [user, setUser] = useState({ email: "", password: "" });
 
-  const handleUser = (e) => {
+  const handleUser = async (e) => {
     e.preventDefault();
-    const user1 = user;
-    console.log(user1);
-    setUser({ username: "", password: "" });
+    const response = await fetch("http://localhost:8000/sign-in",{
+      method:"POST",
+      body:JSON.stringify({email:user.email,password:user.password}),
+      headers:{
+        "Content-Type":"application/json"
+      }
+    })
+    const u = await response.json();
+    if(u.status === "failed"){
+      setUser({password:"",email:user.email})
+      toast(u.message);
+    } else {
+      setUser({email:"",password:""})
+      toast(u.message);
+      console.log(u.user)
+      navigate('/')
+    }
+      
+    setUser({ email: "", password: "" });
   };
   const handleUsename = (e) => {
     e.preventDefault();
@@ -54,8 +73,8 @@ const Login = () => {
                 <input
                   className="loginForm"
                   type="email"
-                  value={user.username}
-                  name="username"
+                  value={user.email}
+                  name="email"
                   onChange={handleUsename}
                   required
                 />
@@ -95,7 +114,7 @@ const Login = () => {
                       Forgot password?
                     </Typography>
                   </Link>
-                  <Link style={{ textDecoration: "none" }}>
+                  <Link style={{ textDecoration: "none" }} to="/signup">
                     <Typography component="p" variant="body" m={1}>
                       Create an account?
                     </Typography>

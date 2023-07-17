@@ -14,10 +14,10 @@ const CatergoryScroll = () => {
         })
         const cat = await response.json()
         setCats(cat)
-        console.log(cat)
+        // console.log(cat)
       }
       fetchData()
-  },[]) 
+  },[cats]) 
 
   return (
     <div style={{position: "relative",}}>
@@ -52,7 +52,7 @@ const CatergoryScroll = () => {
         {cats.map((s) => {
           return (
             <CatergoryItem
-              key={s.id}
+              key={s._id}
               imgSrc={s.img}
               // imgName={s.name} 
               foodName={s.name}

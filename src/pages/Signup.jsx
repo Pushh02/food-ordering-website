@@ -1,9 +1,12 @@
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
+// import {Button} from "@mui/material";
 import "../index.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({
     fname: "",
     lname: "",
@@ -13,8 +16,26 @@ const Signup = () => {
   });
   const handleUser = (e) => {
     e.preventDefault();
-    const user1 = user;
-    console.log(user1);
+      const registerUser = async ()=>{
+        const response = await fetch("http://localhost:8000/sign-up",{
+          method:"POST",
+          body:JSON.stringify({fname:user.fname,lname:user.lname,email:user.email,password:user.password,cpassword:user.cpassword}),
+          headers:{
+            "Content-Type":"application/json"
+          }
+        })
+        const u =  await response.json()
+        if(u.status === "failed"){
+          toast(u.message)
+        } else {
+          toast(u.message)
+          console.log(u.user)
+          navigate("/login")
+          
+        }
+      }
+      registerUser();
+
     setUser({
       fname: "",
       lname: "",
@@ -23,6 +44,7 @@ const Signup = () => {
       cpassword: "",
     });
   };
+  
   return (
     <Box className="bgAdd">
       <Container sx={{ position: "relative" }}>
@@ -38,7 +60,7 @@ const Signup = () => {
           }}
         >
           <form onSubmit={handleUser}>
-            <Box sx={{ mt: "7vh", ml: { sm: 7, lg: 5, xl: 10 } }}>
+            <Box sx={{ mt: "7vh", ml: { xs: 3, sm:7, lg: 5, xl: 10 } }}>
               <Box>
                 <Typography
                   variant="h4"
@@ -128,7 +150,7 @@ const Signup = () => {
                 </Box>
               </Box>
               <Box>
-                <Link style={{ textDecoration: "none" }}>
+                <Link style={{ textDecoration: "none" }} to="/login">
                   <Typography component="p" variant="body" ml={1} mt={1.5}>
                     Have an account?
                   </Typography>
@@ -136,6 +158,7 @@ const Signup = () => {
                 <input
                   type="submit"
                   className="submitBtn"
+                  // onClick={shudNavigate}
                   // variant="containted"
                   // component="submit"
                   // sx={{
